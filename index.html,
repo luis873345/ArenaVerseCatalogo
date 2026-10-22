@@ -2,347 +2,97 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080d19">
-<title>ArenaVerse | Panel administrativo</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ArenaVerse - Iniciar sesión</title>
+  <style>
+    * { box-sizing: border-box; }
 
-<style>
-:root {
-  color-scheme: dark;
-  --fondo: #080d19;
-  --panel: #111b2d;
-  --borde: #245b91;
-  --azul: #087fc1;
-  --cian: #62d8ff;
-  --texto: #eef5ff;
-  --secundario: #a8bad2;
-}
-* { box-sizing: border-box; }
-body {
-  margin: 0;
-  min-height: 100vh;
-  padding: 22px;
-  display: grid;
-  place-items: center;
-  background:
-    radial-gradient(ellipse at top, #12345b 0%, transparent 48%),
-    var(--fondo);
-  color: var(--texto);
-  font-family: Arial, sans-serif;
-}
-.contenedor {
-  width: 100%;
-  max-width: 520px;
-  padding: 28px;
-  background: var(--panel);
-  border: 1px solid var(--borde);
-  border-radius: 18px;
-  box-shadow: 0 0 35px #0879bd22;
-}
-.logo {
-  margin: 0;
-  text-align: center;
-  color: var(--cian);
-  font-size: 30px;
-  letter-spacing: 4px;
-}
-.subtitulo {
-  text-align: center;
-  color: var(--secundario);
-  margin: 10px 0 28px;
-}
-h2 { font-size: 21px; }
-label {
-  display: block;
-  margin: 17px 0 7px;
-  font-size: 14px;
-}
-input, select {
-  display: block;
-  width: 100%;
-  padding: 13px;
-  border: 1px solid #35516f;
-  border-radius: 8px;
-  background: #091322;
-  color: white;
-  font-size: 16px;
-}
-input:focus, select:focus {
-  outline: 2px solid var(--cian);
-  outline-offset: 1px;
-}
-button {
-  width: 100%;
-  padding: 13px;
-  margin-top: 18px;
-  border: 0;
-  border-radius: 8px;
-  background: var(--azul);
-  color: white;
-  font-size: 15px;
-  font-weight: bold;
-  cursor: pointer;
-}
-button:disabled { opacity: .6; }
-button.secundario {
-  background: #233750;
-  border: 1px solid #426080;
-}
-.nota {
-  color: var(--secundario);
-  font-size: 12px;
-  line-height: 1.6;
-}
-.estado {
-  padding: 12px;
-  border-radius: 8px;
-  background: #091322;
-  color: var(--secundario);
-  font-size: 13px;
-  line-height: 1.5;
-  overflow-wrap: anywhere;
-}
-.oculto { display: none !important; }
-.vista-previa {
-  display: block;
-  width: 100%;
-  max-height: 250px;
-  object-fit: contain;
-  margin-top: 12px;
-  border-radius: 8px;
-  background: #091322;
-}
-hr {
-  border: 0;
-  border-top: 1px solid #29405b;
-  margin: 24px 0;
-}
-@media (max-width: 480px) {
-  body { padding: 12px; }
-  .contenedor { padding: 21px; }
-  .logo { font-size: 25px; }
-}
-</style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      background: #080d20;
+      color: white;
+    }
+
+    .login {
+      width: min(90%, 380px);
+      padding: 32px 24px;
+      border: 1px solid #1769ff;
+      border-radius: 18px;
+      background: #101a35;
+      box-shadow: 0 0 25px #075bff35;
+      text-align: center;
+    }
+
+    h1 {
+      color: #51c8ff;
+      margin-top: 0;
+    }
+
+    p { color: #b9c8e8; }
+
+    input, button {
+      width: 100%;
+      padding: 14px;
+      margin-top: 14px;
+      border-radius: 9px;
+      font-size: 16px;
+    }
+
+    input {
+      border: 1px solid #385a91;
+      background: #080f25;
+      color: white;
+      outline: none;
+    }
+
+    button {
+      border: 0;
+      background: linear-gradient(90deg, #087cff, #782cff);
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    #mensaje {
+      min-height: 24px;
+      font-size: 14px;
+      overflow-wrap: anywhere;
+    }
+  </style>
 </head>
-
 <body>
-<main class="contenedor">
-  <h1 class="logo">ARENAVERSE</h1>
-  <p class="subtitulo">PANEL DE ADMINISTRACIÓN</p>
+  <main class="login">
+    <h1>ArenaVerse</h1>
+    <p>Ingresa tu contraseña para continuar.</p>
 
-  <!-- INICIO DE SESIÓN -->
-  <section id="pantallaLogin">
-    <h2>Iniciar sesión</h2>
-    <p class="nota">
-      Acceso administrativo a la tienda de ArenaVerse.
-    </p>
-
-    <form id="formLogin">
-      <label for="correo">Correo electrónico</label>
-      <input
-        id="correo"
-        name="email"
-        type="email"
-        placeholder="Introduce tu correo"
-        autocomplete="username"
-        required
-      >
-
-      <label for="contrasena">Contraseña</label>
+    <form id="formulario">
       <input
         id="contrasena"
-        name="password"
         type="password"
-        placeholder="Introduce tu contraseña"
+        placeholder="Contraseña"
         autocomplete="current-password"
         required
       >
 
-      <button id="botonEntrar" type="submit">
-        Entrar
-      </button>
+      <button type="submit">Iniciar sesión</button>
+      <p id="mensaje" role="status"></p>
     </form>
+  </main>
 
-    <p id="mensajeLogin" class="estado" role="status">
-      El sistema de autenticación todavía no está configurado.
-    </p>
+  <script>
+    document.getElementById("formulario")
+      .addEventListener("submit", function (evento) {
+        evento.preventDefault();
 
-    <p class="nota">
-      No introduzcas tu contraseña real hasta conectar un
-      sistema de autenticación seguro.
-    </p>
-  </section>
-
-  <!-- PANEL ADMINISTRATIVO -->
-  <section id="pantallaAdmin" class="oculto">
-    <h2>Administrar catálogo</h2>
-
-    <p class="estado">
-      Vista administrativa. La publicación online aún necesita
-      conectarse al catálogo y a un sistema de acceso seguro.
-    </p>
-
-    <form id="formArticulo">
-      <label for="nombreArticulo">Nombre del artículo</label>
-      <input
-        id="nombreArticulo"
-        type="text"
-        maxlength="80"
-        placeholder="Nombre del artículo"
-        required
-      >
-
-      <label for="categoria">Categoría</label>
-      <select id="categoria">
-        <option>Ropa</option>
-        <option>Armas</option>
-        <option>Paquetes</option>
-        <option>Accesorios</option>
-        <option>Objetos</option>
-      </select>
-
-      <label for="precio">Precio</label>
-      <input
-        id="precio"
-        type="number"
-        min="0"
-        step="1"
-        placeholder="Precio"
-        required
-      >
-
-      <label for="moneda">Moneda</label>
-      <select id="moneda">
-        <option>Monedas</option>
-        <option>Diamantes</option>
-      </select>
-
-      <label for="imagen">Imagen del artículo</label>
-      <input id="imagen" type="file" accept="image/*">
-
-      <img id="vistaPrevia" class="vista-previa oculto" alt="Vista previa">
-
-      <label>
-        <input id="publicado" type="checkbox" checked
-          style="display:inline;width:auto;margin-right:8px">
-        Artículo publicado
-      </label>
-
-      <button type="submit">Preparar artículo</button>
-    </form>
-
-    <hr>
-
-    <h2>Artículo preparado</h2>
-    <div id="resultadoArticulo" class="estado">
-      Todavía no has preparado ningún artículo.
-    </div>
-
-    <button id="botonSalir" class="secundario" type="button">
-      Cerrar panel
-    </button>
-  </section>
-</main>
-
-<script>
-"use strict";
-
-/*
- * Esta página no contiene credenciales.
- * El inicio de sesión no se considera válido hasta conectar
- * un proveedor de autenticación seguro.
- */
-
-const pantallaLogin = document.getElementById("pantallaLogin");
-const pantallaAdmin = document.getElementById("pantallaAdmin");
-const formLogin = document.getElementById("formLogin");
-const mensajeLogin = document.getElementById("mensajeLogin");
-const botonEntrar = document.getElementById("botonEntrar");
-const campoImagen = document.getElementById("imagen");
-const vistaPrevia = document.getElementById("vistaPrevia");
-
-formLogin.addEventListener("submit", function(event) {
-  event.preventDefault();
-
-  mensajeLogin.textContent =
-    "No se puede iniciar sesión todavía: falta conectar " +
-    "la autenticación segura. No se ha guardado tu contraseña.";
-
-  document.getElementById("contrasena").value = "";
-});
-
-campoImagen.addEventListener("change", function() {
-  const archivo = campoImagen.files[0];
-
-  if (!archivo) {
-    vistaPrevia.classList.add("oculto");
-    vistaPrevia.removeAttribute("src");
-    return;
-  }
-
-  if (!archivo.type.startsWith("image/")) {
-    campoImagen.value = "";
-    vistaPrevia.classList.add("oculto");
-    alert("Selecciona un archivo de imagen válido.");
-    return;
-  }
-
-  if (archivo.size > 5 * 1024 * 1024) {
-    campoImagen.value = "";
-    vistaPrevia.classList.add("oculto");
-    alert("La imagen debe pesar menos de 5 MB.");
-    return;
-  }
-
-  const lector = new FileReader();
-
-  lector.onload = function() {
-    vistaPrevia.src = lector.result;
-    vistaPrevia.classList.remove("oculto");
-  };
-
-  lector.readAsDataURL(archivo);
-});
-
-document.getElementById("formArticulo").addEventListener(
-  "submit", function(event) {
-    event.preventDefault();
-
-    const nombre = document.getElementById("nombreArticulo").value.trim();
-    const precio = Number(document.getElementById("precio").value);
-    const categoria = document.getElementById("categoria").value;
-    const moneda = document.getElementById("moneda").value;
-    const publicado = document.getElementById("publicado").checked;
-
-    if (!nombre || !Number.isFinite(precio) || precio < 0) {
-      alert("Comprueba el nombre y el precio.");
-      return;
-    }
-
-    const resumen = {
-      nombreArticulo: nombre,
-      categoria: categoria,
-      precio: precio,
-      moneda: moneda,
-      publicado: publicado,
-      imagenSeleccionada: Boolean(campoImagen.files[0])
-    };
-
-    document.getElementById("resultadoArticulo").textContent =
-      JSON.stringify(resumen, null, 2) +
-      "\n\nEste artículo solo está preparado en esta pantalla. " +
-      "Todavía no se ha guardado ni publicado online.";
-  }
-});
-
-document.getElementById("botonSalir").addEventListener("click", function() {
-  pantallaAdmin.classList.add("oculto");
-  pantallaLogin.classList.remove("oculto");
-  formLogin.reset();
-  mensajeLogin.textContent =
-    "El sistema de autenticación todavía no está configurado.";
-});
-</script>
+        document.getElementById("mensaje").textContent =
+          "Falta conectar el servicio de autenticación de ArenaVerse.";
+      });
+  </script>
 </body>
 </html>
