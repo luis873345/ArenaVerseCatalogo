@@ -1,1 +1,25 @@
 
+{
+  "version": 1,
+  "articulos": [
+    {
+      "id": "ropa_001",
+      "nombreArticulo": "Armadura de prueba",
+      "categoria": "Ropa",
+      "precio": 500,
+      "moneda": "Monedas",
+      "publicado": true,
+      "imagenUrl": ""
+    },
+    {
+      "id": "accesorio_001",
+      "nombreArticulo": "Accesorio de prueba",
+      "categoria": "Accesorios",
+      "precio": 100,
+      "moneda": "Diamantes",
+      "publicado": false,
+      "imagenUrl": ""
+    }
+  ]
+}
+
